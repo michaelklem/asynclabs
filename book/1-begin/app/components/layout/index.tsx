@@ -3,6 +3,7 @@ import React from 'react';
 import MenuWithLinks from '../common/MenuWithLinks'
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
+import Notifier from 'components/common/Notifier';
 
 const styleGrid = {
   width: '100%',
@@ -122,7 +123,9 @@ class Layout extends React.Component<Props> {
           <Grid item sm={10} xs={12}>
             {children}
           </Grid>
+          <Notifier />
         </Grid>
+  
     );
   }
 }

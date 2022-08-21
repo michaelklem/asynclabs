@@ -2,8 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/layout';
+import Button from '@material-ui/core/Button';
+import { notify, notifyError } from '../lib/notify';
 
-const Index = () => (
+ const Index = () => (
   <Layout firstGridItem={true}>
     <Head>
       <title>Index page</title>
@@ -17,7 +19,20 @@ const Index = () => (
       </Link>
 
       <p/>
-      <i className="material-icons">menu</i>
+
+      <Button variant="contained" onClick={() => notify('some  success text')}>
+        Open Notifier
+      </Button>
+
+
+      <Button variant="contained" onClick={() => notify('some  text')}>
+        Success
+      </Button>
+
+
+      <Button variant="contained" onClick={() => notifyError('some error text')}>
+        Error
+      </Button>
     </div>
   </Layout>
 );

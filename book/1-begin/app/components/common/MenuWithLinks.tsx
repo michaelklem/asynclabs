@@ -32,10 +32,10 @@ class MenuWithLinks extends React.PureComponent<Props, State> {
     const { options, children, router } = this.props;
     const { anchorEl } = this.state;
 
-    console.log('router.asPath',router.asPath)
-    {options.map((option, i) =>
-      console.log('option.highlighterSlug',option.highlighterSlug)
-    )}
+    // console.log('router.asPath',router.asPath)
+    // {options.map((option, i) =>
+    //   console.log('option.highlighterSlug',option.highlighterSlug)
+    // )}
 
     return (
       <div style={{ textAlign: 'center' }}>
