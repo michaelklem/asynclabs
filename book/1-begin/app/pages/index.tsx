@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const Index = () => (
   <div>
@@ -9,6 +10,9 @@ const Index = () => (
     </Head>
     <div style={{ padding: '0px 30px', fontSize: '15px', height: '100%', color: '#222' }}>
       <p>Content on Index page</p>
+      <Link href='/csr-page' as='/csr-page'>
+        <a>Go to CSR page</a>
+      </Link>
     </div>
   </div>
 );
