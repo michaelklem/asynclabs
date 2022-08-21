@@ -1,9 +1,10 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import Head from 'next/head';
+import Layout from 'components/layout';
 
 const CSRPage = () => (
-  <div>
+  <Layout firstGridItem={true}>
     <Head>
       <title>CSR page</title>
       <meta name="description" content="This is a description of the CSR page" />
@@ -12,7 +13,7 @@ const CSRPage = () => (
       <p>Content on CSR page</p>
       <Button variant="outlined">Some button</Button>
     </div>
-  </div>
+  </Layout>
 );
 
 export default CSRPage;
