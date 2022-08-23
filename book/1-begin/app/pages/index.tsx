@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Layout from '../components/layout';
 import Button from '@material-ui/core/Button';
 import { notify, notifyError } from '../lib/notify';
+import confirm from '../lib/confirm';
 
  const Index = () => (
   <Layout firstGridItem={true}>
@@ -33,6 +34,34 @@ import { notify, notifyError } from '../lib/notify';
       <Button variant="contained" onClick={() => notifyError('some error text')}>
         Error
       </Button>
+
+      <hr/>
+
+        <Button
+        variant="contained"
+        onClick={() =>
+          confirm({
+            title: 'Are you sure?',
+            message: 'explanatory message',
+            onAnswer: async (answer) => {
+              console.log(answer);
+
+              if (!answer) {
+                return;
+              }
+
+              try {
+                notify('You successfully confirmed.');
+              } catch (error) {
+                console.error(error);
+                notify(error);
+              }
+            },
+          })
+        }
+      >
+        Test Confirmer and Notifier
+      </Button>    
     </div>
   </Layout>
 );
