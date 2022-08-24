@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/layout';
 import Button from '@material-ui/core/Button';
 import { notify, notifyError } from '../lib/notify';
 import confirm from '../lib/confirm';
+import Progress from '../components/common/Progress'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
 
- const Index = () => (
+const useStyles = makeStyles({
+  '@global': {
+    body: {
+      margin: 0,
+    },
+  },
+  container: {
+    alignItems: 'center',
+    display: 'flex',
+    height: '100vh',
+    justifyContent: 'center',
+  },
+})
+
+//  const Index = () => (
+ const Index: React.FC = () => {
+  const classes = useStyles()
+  const [state, setState] = useState({
+    isAnimating: false,
+    key: 0,
+  })
+
+  return (
   <Layout firstGridItem={true}>
     <Head>
       <title>Index page</title>
@@ -62,8 +87,26 @@ import confirm from '../lib/confirm';
       >
         Test Confirmer and Notifier
       </Button>    
+
+      <hr/>
+
+      <Progress isAnimating={state.isAnimating} key={state.key} />
+      <Container classes={{ root: classes.container }}>
+        <Button
+          onClick={() => {
+            setState((prevState) => ({
+              isAnimating: !prevState.isAnimating,
+              key: prevState.isAnimating ? prevState.key : prevState.key ^ 1,
+            }))
+          }}
+          variant="contained"
+        >
+          {state.isAnimating ? 'Stop' : 'Start'}
+        </Button>
+      </Container>      
     </div>
   </Layout>
-);
+  )
+};
 
 export default Index;

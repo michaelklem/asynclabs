@@ -1006,7 +1006,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.18.9", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.18.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
   integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
@@ -1284,6 +1284,14 @@
   dependencies:
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
+
+"@tanem/react-nprogress@^5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@tanem/react-nprogress/-/react-nprogress-5.0.12.tgz#f7ad561c6ba99e620271bec31d5248cc71e6720f"
+  integrity sha512-Suq0JYD5iX8snFnnF3Dm+Ho24Oe9S+revqkPIa7YuTb3JvVx3xWfgf5hzTVGhq4DPcLxUz40P0zdRaePfSXA0A==
+  dependencies:
+    "@babel/runtime" "^7.18.9"
+    hoist-non-react-statics "^3.3.2"
 
 "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.9":
   version "7.0.11"

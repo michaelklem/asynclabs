@@ -35,7 +35,7 @@ class Layout extends React.Component<Props> {
             style={{
               borderRight: '1px #707070 solid',
               justifyContent: 'center',
-              height: '100%',
+              // height: '100%',
               overflow: 'hidden',
             }}
           >
