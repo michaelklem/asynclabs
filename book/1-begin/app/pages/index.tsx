@@ -24,89 +24,98 @@ const useStyles = makeStyles({
 })
 
 //  const Index = () => (
- const Index: React.FC = () => {
-  const classes = useStyles()
-  const [state, setState] = useState({
-    isAnimating: false,
-    key: 0,
-  })
+//  const Index: React.FC = () => {
+class Index extends React.Component {
+  constructor(props) {
+    super(props)
+    this.classes = useStyles
+    this.state = {
+      isAnimating: false,
+      key: 0
+    }
+  }
+  
+  public render() {
 
-  return (
-  <Layout firstGridItem={true}>
-    <Head>
-      <title>Index page</title>
-      <meta name="description" content="This is a description of the Index page" />
-    </Head>
-    <div style={{ padding: '0px 30px', fontSize: '15px', height: '100%', color: '#222' }}>
-      <p>Content on Index page</p>
-      
-      <Link href='/csr-page' as='/csr-page'>
-        <a>Go to CSR page</a>
-      </Link>
+    return (
+      //<Layout firstGridItem={true}>
+      <Layout firstGridItem={this.props.firstGridItem} isMobile={this.props.isMobile}>
+        <Head>
+          <title>Index page</title>
+          <meta name="description" content="This is a description of the Index page" />
+        </Head>
+        <div style={{ padding: '0px 30px', fontSize: '15px', height: '100%', color: '#222' }}>
+          <p>Content on Index page</p>
+          
+          <Link href='/csr-page' as='/csr-page'>
+            <a>Go to CSR page</a>
+          </Link>
 
-      <p/>
+          <p/>
 
-      <Button variant="contained" onClick={() => notify('some  success text')}>
-        Open Notifier
-      </Button>
-
-
-      <Button variant="contained" onClick={() => notify('some  text')}>
-        Success
-      </Button>
+          <Button variant="contained" onClick={() => notify('some  success text')}>
+            Open Notifier
+          </Button>
 
 
-      <Button variant="contained" onClick={() => notifyError('some error text')}>
-        Error
-      </Button>
+          <Button variant="contained" onClick={() => notify('some  text')}>
+            Success
+          </Button>
 
-      <hr/>
 
-        <Button
-        variant="contained"
-        onClick={() =>
-          confirm({
-            title: 'Are you sure?',
-            message: 'explanatory message',
-            onAnswer: async (answer) => {
-              console.log(answer);
+          <Button variant="contained" onClick={() => notifyError('some error text')}>
+            Error
+          </Button>
 
-              if (!answer) {
-                return;
-              }
+          <hr/>
 
-              try {
-                notify('You successfully confirmed.');
-              } catch (error) {
-                console.error(error);
-                notify(error);
-              }
-            },
-          })
-        }
-      >
-        Test Confirmer and Notifier
-      </Button>    
+            <Button
+            variant="contained"
+            onClick={() =>
+              confirm({
+                title: 'Are you sure?',
+                message: 'explanatory message',
+                onAnswer: async (answer) => {
+                  console.log(answer);
 
-      <hr/>
+                  if (!answer) {
+                    return;
+                  }
 
-      <Progress isAnimating={state.isAnimating} key={state.key} />
-      <Container classes={{ root: classes.container }}>
-        <Button
-          onClick={() => {
-            setState((prevState) => ({
-              isAnimating: !prevState.isAnimating,
-              key: prevState.isAnimating ? prevState.key : prevState.key ^ 1,
-            }))
-          }}
-          variant="contained"
-        >
-          {state.isAnimating ? 'Stop' : 'Start'}
-        </Button>
-      </Container>      
-    </div>
-  </Layout>
-  )
+                  try {
+                    notify('You successfully confirmed.');
+                  } catch (error) {
+                    console.error(error);
+                    notify(error);
+                  }
+                },
+              })
+            }
+          >
+            Test Confirmer and Notifier
+          </Button>    
+
+          <hr/>
+
+          <Progress isAnimating={this.state.isAnimating} key={this.state.key} />
+          <Container classes={{ root:this. classes.container }}>
+            <Button
+              onClick={() => {
+
+                this.setState((prevState) => ({
+                  isAnimating: !prevState.isAnimating,
+                  key: prevState.isAnimating ? prevState.key : prevState.key ^ 1,
+                }))
+              }}
+              variant="contained"
+            >
+              {this.state.isAnimating ? 'Stop' : 'Start'}
+            </Button>
+          </Container>      
+        </div>
+      </Layout>
+    )
+  }
 };
 
 export default Index;
