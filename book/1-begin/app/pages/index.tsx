@@ -8,6 +8,7 @@ import confirm from '../lib/confirm';
 import Progress from '../components/common/Progress'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+import NProgress from 'nprogress';
 
 const useStyles = makeStyles({
   '@global': {
@@ -81,6 +82,8 @@ class Index extends React.Component {
                   if (!answer) {
                     return;
                   }
+                  
+                  NProgress.start();
 
                   try {
                     notify('You successfully confirmed.');
@@ -97,11 +100,12 @@ class Index extends React.Component {
 
           <hr/>
 
+
           <Progress isAnimating={this.state.isAnimating} key={this.state.key} />
           <Container classes={{ root:this. classes.container }}>
             <Button
               onClick={() => {
-
+                
                 this.setState((prevState) => ({
                   isAnimating: !prevState.isAnimating,
                   key: prevState.isAnimating ? prevState.key : prevState.key ^ 1,
