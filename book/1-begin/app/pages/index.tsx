@@ -5,9 +5,7 @@ import Layout from '../components/layout';
 import Button from '@material-ui/core/Button';
 import { notify, notifyError } from '../lib/notify';
 import confirm from '../lib/confirm';
-import Progress from '../components/common/Progress'
 import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
 import NProgress from 'nprogress';
 
 const useStyles = makeStyles({
@@ -99,23 +97,7 @@ class Index extends React.Component {
           </Button>    
 
           <hr/>
-
-
-          <Progress isAnimating={this.state.isAnimating} key={this.state.key} />
-          <Container classes={{ root:this. classes.container }}>
-            <Button
-              onClick={() => {
-                
-                this.setState((prevState) => ({
-                  isAnimating: !prevState.isAnimating,
-                  key: prevState.isAnimating ? prevState.key : prevState.key ^ 1,
-                }))
-              }}
-              variant="contained"
-            >
-              {this.state.isAnimating ? 'Stop' : 'Start'}
-            </Button>
-          </Container>      
+     
         </div>
       </Layout>
     )
