@@ -21,7 +21,7 @@ class MyApp extends App<{ isMobile: boolean }> {
       Object.assign(pageProps, await Component.getInitialProps(ctx));
     }
 
-    console.log('pageProps', pageProps);
+    console.log('[app] pageProps', pageProps);
 
     return { pageProps };
   }

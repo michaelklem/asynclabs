@@ -7,6 +7,7 @@ import { notify, notifyError } from '../lib/notify';
 import confirm from '../lib/confirm';
 import { makeStyles } from '@material-ui/core/styles'
 import NProgress from 'nprogress';
+import { getUserApiMethod } from '../lib/api/public';
 
 const useStyles = makeStyles({
   '@global': {
@@ -22,9 +23,19 @@ const useStyles = makeStyles({
   },
 })
 
+type Props = { user: { email: string } };
+
 //  const Index = () => (
 //  const Index: React.FC = () => {
-class Index extends React.Component {
+class Index extends React.Component<Props> {
+  public static async getInitialProps(ctx) {
+    const { req } = ctx;
+    const user = await getUserApiMethod(req);
+    console.log(`[Index] user: ${user}`);
+    return { ...user };
+  }
+
+
   constructor(props) {
     super(props)
     this.classes = useStyles
@@ -38,7 +49,8 @@ class Index extends React.Component {
 
     return (
       //<Layout firstGridItem={true}>
-      <Layout firstGridItem={this.props.firstGridItem} isMobile={this.props.isMobile}>
+      //<Layout firstGridItem={this.props.firstGridItem} isMobile={this.props.isMobile}>
+      <Layout {...this.props}>
         <Head>
           <title>Index page</title>
           <meta name="description" content="This is a description of the Index page" />
@@ -75,7 +87,7 @@ class Index extends React.Component {
                 title: 'Are you sure?',
                 message: 'explanatory message',
                 onAnswer: async (answer) => {
-                  console.log(answer);
+                  // console.log(answer);
 
                   if (!answer) {
                     return;
@@ -95,7 +107,7 @@ class Index extends React.Component {
           >
             Test Confirmer and Notifier
           </Button>    
-
+          <p>Email: {this.props.user.email}</p>
           <hr/>
      
         </div>

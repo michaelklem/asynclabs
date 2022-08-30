@@ -26,7 +26,7 @@ class Layout extends React.Component<Props> {
     const {children, firstGridItem, isMobile } = this.props;
     const isThemeDark = false;
 
-    console.log('isMobile:', isMobile);
+    // console.log('isMobile:', isMobile);
 
     return (
       <Grid container direction="row" justifyContent="flex-start" alignItems="stretch" style={styleGrid}>

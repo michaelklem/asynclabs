@@ -8,7 +8,7 @@ dotenv.config();
 class MyDocument extends Document {
   public static getInitialProps = async (ctx) => {
     const sheets = new ServerStyleSheets();
-    console.log(sheets);
+    // console.log(`[MyDocument] ${sheets}`);
     const originalRenderPage = ctx.renderPage;
 
     ctx.renderPage = () =>
@@ -18,12 +18,12 @@ class MyDocument extends Document {
 
     const initialProps = await Document.getInitialProps(ctx);
 
-    console.log(initialProps);
-    console.log(initialProps.styles);
-    console.log(React.Children.toArray(initialProps.styles));
+    // console.log(initialProps);
+    // console.log(initialProps.styles);
+    // console.log(React.Children.toArray(initialProps.styles));
 
-    console.log(sheets);
-    console.log(sheets.getStyleElement());
+    // console.log(sheets);
+    // console.log(sheets.getStyleElement());
 
     return {
       ...initialProps,
@@ -32,9 +32,9 @@ class MyDocument extends Document {
   };
 
   public render() {
-    console.log("MyDocument",process.env.NODE_ENV);
-    console.log("MyDocument",process.env.NEXT_PUBLIC_URL_APP);
-    console.log("MyDocument",'rendered on the server');
+    // console.log("MyDocument",process.env.NODE_ENV);
+    // console.log("MyDocument",process.env.NEXT_PUBLIC_URL_APP);
+    // console.log("MyDocument",'rendered on the server');
 
     return (
       <Html lang="en">

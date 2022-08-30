@@ -20,7 +20,7 @@ export function isMobile(opts) {
     return false;
   }
 
-  console.log("user agent:", ua);
+  // console.log("user agent:", ua);
 
   return mobileRE.test(ua);
 }
